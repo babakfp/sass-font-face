@@ -1,0 +1,75 @@
+@use "sass:string";
+
+// if font path's last character was'nt ending with (/) then add it.
+@function debug-fonts-path($path){
+
+  $path: string.unquote($path);
+
+  $last-character: string.slice($path, -1);
+  @if $last-character != "/"{
+    $path: string.unquote($path + "/");
+  }
+
+  @return string.quote($path);
+}
+
+
+@function return-font-text-weight-base-on-number-weight($font-weight){
+
+  $return: null;
+
+  @if $font-weight == $thin {
+    $return: "thin";
+  } @else if $font-weight == $light  {
+    $return: "light";
+  } @else if $font-weight == $normal {
+    $return: null;
+  } @else if $font-weight == $medium {
+    $return: medium;
+  } @else if $font-weight == $bold   {
+    $return: bold;
+  }
+
+  @if $return != null {
+    $return: "-#{$return}";
+  }
+
+  @return $return;
+}
+
+
+@mixin font-family-style-src($font-family, $path, $text-weight, $suffix, $font-style) {
+  font-family: $font-family;
+  src: url("#{$path}#{$font-family}/#{$font-family}#{$text-weight}.#{$suffix}") format("#{$suffix}");
+  font-style: $font-style;
+}
+
+
+@mixin fontface($font-family, $suffix, $font-weight, $font-style, $path) {
+
+  $path: debug-fonts-path($path);
+
+  @if type-of($font-weight) == number or $font-weight == null {
+    $text-weight: return-font-text-weight-base-on-number-weight($font-weight);
+  
+    @font-face {
+      @include font-family-style-src($font-family, $path, $text-weight, $suffix, $font-style);
+      font-weight: $font-weight;
+    }
+
+  } @else if type-of($font-weight) == list {
+
+    @each $weight in $font-weight {
+
+      $text-weight: return-font-text-weight-base-on-number-weight($weight);
+
+      @font-face {
+        @include font-family-style-src($font-family, $path, $text-weight, $suffix, $font-style);
+        font-weight: $weight;
+      }
+
+    }
+
+  }
+
+}
