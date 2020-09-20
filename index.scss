@@ -1,0 +1,8 @@
+@import "functions";
+
+$fonts-path: "./fonts";
+
+@include fontface(vazir, 300, woff2, $fonts-path);
+@include fontface(vazir, 400, woff2, $fonts-path);
+@include fontface(vazir, 500, woff2, $fonts-path);
+@include fontface(vazir, 600, woff2, $fonts-path);
