@@ -1,0 +1,43 @@
+@use "sass:string";
+
+// if font path's last character was'nt ending with (/) then add it.
+@function debug-fonts-path($path){
+
+  $path: string.unquote($path);
+
+  $last-character: string.slice($path, -1);
+  @if $last-character != "/"{
+    $path: string.unquote($path + "/");
+  }
+
+  @return string.quote($path);
+}
+
+// this will take number font-weight and return the text font like (100 => thin / 600 => bold).
+// variables are spesified in _variables.scss file and they are changeable.
+@function return-font-text-weight-base-on-number-weight($font-weight){
+
+  $return: null;
+
+  @if $font-weight == $thin {
+    $return: "thin";
+  } @else if $font-weight == $light  {
+    $return: "light";
+  } @else if $font-weight == $normal {
+    $return: null;
+  } @else if $font-weight == $medium {
+    $return: medium;
+  } @else if $font-weight == $bold   {
+    $return: bold;
+  } @else if $font-weight == $extra-bold   {
+    $return: "extra-bold";
+  }
+  
+
+  // if return value has an value, then add a (-) to seperate font and weight in file name.
+  @if $return != null {
+    $return: "-#{$return}";
+  }
+
+  @return $return;
+}

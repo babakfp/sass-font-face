@@ -1,0 +1,40 @@
+// return some props to not repeat them on fontface function.
+@mixin font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path) {
+  font-family: $font-family;
+  src: url("#{$path}#{$font-family}/#{$font-family}#{$text-weight}.#{$suffix}") format("#{$suffix}");
+  font-style: $font-style;
+}
+
+// main mixin
+@mixin font-face($font-family, $font-style, $suffix, $font-weight, $path) {
+
+  $path: debug-fonts-path($path);
+
+  // if type was number then it means its a single value and we will do the output base on that.
+  @if type-of($font-weight) == number or $font-weight == null {
+    $text-weight: return-font-text-weight-base-on-number-weight($font-weight);
+  
+    @font-face {
+      @include font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path);
+      font-weight: $font-weight;
+    }
+
+  // was a list type, then loop through.
+  } @else if type-of($font-weight) == list {
+
+    @each $weight in $font-weight {
+
+      $text-weight: return-font-text-weight-base-on-number-weight($weight);
+
+      @font-face {
+        @include font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path);
+        font-weight: $weight;
+      }
+
+    }
+    // endeach
+
+  }
+  // endif
+
+}

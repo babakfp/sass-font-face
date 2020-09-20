@@ -1,6 +1,0 @@
-@import "variables";
-@import "functionality";
-
-$vazir-path: "./fonts";
-$vazir-weights: 300, 400, 500, 600;
-@include fontface(vazir, woff2, $vazir-weights, normal, $vazir-path);

@@ -1,5 +1,11 @@
 @font-face {
   font-family: vazir;
+  src: url("./fonts/vazir/vazir-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: vazir;
   src: url("./fonts/vazir/vazir-light.woff2") format("woff2");
   font-style: normal;
   font-weight: 300;
@@ -21,4 +27,14 @@
   src: url("./fonts/vazir/vazir-bold.woff2") format("woff2");
   font-style: normal;
   font-weight: 600;
+}
+@font-face {
+  font-family: vazir;
+  src: url("./fonts/vazir/vazir.woff2") format("woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: vazir;
+  src: url("./fonts/vazir/vazir-medium.woff2") format("woff2");
+  font-weight: 500;
 }

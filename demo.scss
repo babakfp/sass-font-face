@@ -1,0 +1,7 @@
+@import "src/index";
+
+// font name | font style | font type | font weight | font path
+@include font-face(vazir, normal, woff2, 500, "./fonts");
+@include font-face(vazir, normal, woff2, 300 400 500 600, "./fonts");
+@include font-face(vazir, normal, woff2, null, "./fonts");
+@include font-face(vazir, null, woff2, 500, "./fonts");
