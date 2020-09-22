@@ -1,7 +1,12 @@
 @import "src/index";
 
-// font name | font style | font type | font weight | font path
-@include font-face(vazir, normal, woff2, 500, "./fonts");
-@include font-face(vazir, normal, woff2, 300 400 500 600, "./fonts");
-@include font-face(vazir, normal, woff2, null, "./fonts");
-@include font-face(vazir, null, woff2, 500, "./fonts");
+//* name | style | weight/weights | suffix/suffixs | path
+
+// @include font-face(sans-serif);
+// @include font-face(sans-serif, italic);
+// @include font-face(sans-serif, null, null, woff2);
+// @include font-face(sans-serif, null, null, woff2 woff);
+// @include font-face(sans-serif, null, 400, woff2);
+// @include font-face(sans-serif, null, 400 500, woff2);
+// @include font-face(sans-serif, null, null, woff2, "./my-fonts");
+@include font-face(sans-serif, italic, 400 500, woff2 woff, "./my-fonts");

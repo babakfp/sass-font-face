@@ -1,43 +1,41 @@
 @use "sass:string";
 
-// if font path's last character was'nt ending with (/) then add it.
-@function debug-fonts-path($path){
 
+// this will debut the font path.
+// if path last character was'nt ending with (/) then add (/) to the end of the path.
+@function debugPath($path){
+
+  // remove "".
   $path: string.unquote($path);
 
-  $last-character: string.slice($path, -1);
-  @if $last-character != "/"{
+  // grap last letter/character from path.
+  $lc: string.slice($path, -1);
+
+  // checking
+  @if $lc != "/"{
+    // add (/) to the end of the path.
     $path: string.unquote($path + "/");
   }
 
+  // add "" and return.
   @return string.quote($path);
 }
 
-// this will take number font-weight and return the text font like (100 => thin / 600 => bold).
-// variables are spesified in _variables.scss file and they are changeable.
-@function return-font-text-weight-base-on-number-weight($font-weight){
 
-  $return: null;
+// string replace
+@function myStrReplace($string, $search, $replace: "") {
 
-  @if $font-weight == $thin {
-    $return: "thin";
-  } @else if $font-weight == $light  {
-    $return: "light";
-  } @else if $font-weight == $normal {
-    $return: null;
-  } @else if $font-weight == $medium {
-    $return: medium;
-  } @else if $font-weight == $bold   {
-    $return: bold;
-  } @else if $font-weight == $extra-bold   {
-    $return: "extra-bold";
+	@if type-of($string) == string {
+    
+    $index: str-index($string, $search);
+
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+
+  } @else {
+    @return null;
   }
-  
-
-  // if return value has an value, then add a (-) to seperate font and weight in file name.
-  @if $return != null {
-    $return: "-#{$return}";
-  }
-
-  @return $return;
 }

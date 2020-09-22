@@ -1,40 +1,71 @@
+@use "functions";
+
+
 // return some props to not repeat them on fontface function.
-@mixin font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path) {
-  font-family: $font-family;
-  src: url("#{$path}#{$font-family}/#{$font-family}#{$text-weight}.#{$suffix}") format("#{$suffix}");
-  font-style: $font-style;
+@mixin font-family-style-src($name, $style, $weight, $suffixs, $path){
+  
+  $src: null;
+
+  $suffixMods:(
+		eot: "?#iefix",
+		svg: "#" + functions.myStrReplace($name, " ", "_")
+  );
+  
+  $suffixFormats:(
+    eot: embedded-opentype,
+    otf: opentype,
+    ttf: truetype,
+    woff2: woff2,
+    woff: woff
+  );
+
+  @if $weight and $weight != null {
+    $weight: -#{$weight}
+  }
+  
+  @each $suffix in $suffixs {
+    $mod: if( map-has-key($suffixMods, $suffix), $suffix + map-get($suffixMods, $suffix), $suffix );
+    $format: if( map-has-key($suffixFormats, $suffix), map-get($suffixFormats, $suffix), $suffix );
+    $src: append( $src, url("#{$path}#{$name}/#{$name}#{$weight}.#{$mod}") format("#{$format}"), comma );
+  }
+
+  // output
+  font-family: $name;
+  src: $src;
+  font-style: $style;
 }
 
-// main mixin
-@mixin font-face($font-family, $font-style, $suffix, $font-weight, $path) {
 
-  $path: debug-fonts-path($path);
+// main mixin
+@mixin font-face($name, $style:null, $weights:null, $suffixs:woff2 woff ttf, $path: "./fonts/") {
+
+  @if $name == null or $name == "" {
+    @error "Write a valide 'font name' (first prop) in font-face() mixin";
+  }
+  @if $suffixs == null or $suffixs == "" {
+    @error "Font suffix/suffixs is a unvalid type or may you just forgot to write it in font-face() mixin";
+  }
+  
+  $path: functions.debugPath($path);
 
   // if type was number then it means its a single value and we will do the output base on that.
-  @if type-of($font-weight) == number or $font-weight == null {
-    $text-weight: return-font-text-weight-base-on-number-weight($font-weight);
-  
+  @if type-of($weights) == number or $weights == null {
+
     @font-face {
-      @include font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path);
-      font-weight: $font-weight;
+      @include font-family-style-src($name, $style, $weights, $suffixs, $path);
+      font-weight: $weights;
     }
 
   // was a list type, then loop through.
-  } @else if type-of($font-weight) == list {
+  } @else if type-of($weights) == list {
 
-    @each $weight in $font-weight {
-
-      $text-weight: return-font-text-weight-base-on-number-weight($weight);
-
+    @each $weight in $weights {
       @font-face {
-        @include font-family-style-src($font-family, $font-style, $suffix, $text-weight, $path);
+        @include font-family-style-src($name, $style, $weight, $suffixs, $path);
         font-weight: $weight;
       }
-
     }
-    // endeach
 
-  }
-  // endif
+  } /// if
 
-}
+} /// mixin
