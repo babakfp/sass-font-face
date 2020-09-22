@@ -11,7 +11,7 @@ _font name_ | _font style_ | _font weight/weights_ | _font suffix/suffixs_ | _fo
 
 
 ###### How it works?
-You can use a mixin named ```scss font-face()``` with the possible props to output the @font-face styles.
+You can use a mixin named ```font-face()``` with the possible props to output the @font-face styles.
 
 
 ###### Filename spesifaction
@@ -30,11 +30,11 @@ file: <name>-900.<suffix>
 
 
 ###### Props
-If you replace any prop(example:font-style) with ```scss null```, the style for that prop not going to outputed in .css file.
+If you replace any prop(example:font-style) with ```null```, the style for that prop not going to outputed in .css file.
 
 
 ###### Path
-You can write the path like ```scss "./fonts"``` or ```scss "./fonts/"```. in the end, its going to work fine.
+You can write the path like ```"./fonts"``` or ```"./fonts/"```. in the end, its going to work fine.
 note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 
 
@@ -50,10 +50,10 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 ###### Full preview
 
 ```scss
-// scss:
+// scss input:
 @include font-face(sans-serif);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif.woff2") format("woff2"), url("./fonts/sans-serif/sans-serif.woff") format("woff"), url("./fonts/sans-serif/sans-serif.ttf") format("truetype");
@@ -64,7 +64,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, italic);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif.woff2") format("woff2"), url("./fonts/sans-serif/sans-serif.woff") format("woff"), url("./fonts/sans-serif/sans-serif.ttf") format("truetype");
@@ -76,7 +76,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, null, 400, woff2);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif-400.woff2") format("woff2");
@@ -88,7 +88,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, null, 400 500, woff2);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif-400.woff2") format("woff2");
@@ -105,7 +105,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, null, null, woff2);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif.woff2") format("woff2");
@@ -117,7 +117,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, null, null, woff2 woff);
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./fonts/sans-serif/sans-serif.woff2") format("woff2"), url("./fonts/sans-serif/sans-serif.woff") format("woff");
@@ -130,7 +130,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // or
 @include font-face(sans-serif, null, null, woff2, "./my-fonts/");
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./my-fonts/sans-serif/sans-serif.woff2") format("woff2");
@@ -141,7 +141,7 @@ note: dont pass two slashes like:```./fonts```. it will prake the prosess.
 // scss:
 @include font-face(sans-serif, italic, 400 500, woff2 woff, "./my-fonts");
 
-// css:
+// css output:
 @font-face {
   font-family: sans-serif;
   src: url("./my-fonts/sans-serif/sans-serif-400.woff2") format("woff2"), url("./my-fonts/sans-serif/sans-serif-400.woff") format("woff");
