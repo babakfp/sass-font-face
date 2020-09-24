@@ -33,8 +33,9 @@
     
     @each $weight in $weights {
       @font-face {
-        @include src($family, $folder, $weight, $suffixs, $path);
         font-family: $family;
+        font-weight: $weight;
+        @include src($family, $folder, $weight, $suffixs, $path);
         @include executeOptionalMap($optionalMap);
       }
     }/// each
@@ -43,10 +44,11 @@
     $weight: $weights;
 
     @font-face {
-      @include src($family, $folder, $weight, $suffixs, $path);
       font-family: $family;
+      font-weight: $weight;
+      @include src($family, $folder, $weight, $suffixs, $path);
       @include executeOptionalMap($optionalMap);
     }
     
-  } /// elseif
+  }/// elseif
 }
