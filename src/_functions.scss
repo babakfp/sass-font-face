@@ -1,24 +1,78 @@
 @use "sass:string";
 
 
+@function suffixMods($family, $suffix){
+  $mods:(
+    eot: "?#iefix",
+    svg: "#" + myStrReplace($family, " ", "_")
+  );
+  @return if(map-has-key($mods, $suffix), $suffix + map-get($mods, $suffix), $suffix);
+}
+
+
+@function suffixFormats($suffix){
+  $formats:(
+    woff:   woff,
+    woff2:  woff2,
+    otf:    opentype,
+    ttf:    truetype,
+    eot:    embedded-opentype
+  );
+  @return if(map-has-key($formats, $suffix), map-get($formats, $suffix), $suffix);
+}
+
+
+// is null and empty.
+@function isValid($value){
+  @if $value and $value != null and $value != "" {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+
+// family or folder name for font folder name.
+@function familyOrFolder($family, $folder){
+  @if isValid($folder) {
+    @return $folder + "/";
+  } @else {
+    @return $family + "/";
+  }
+}
+
+
+// if font, then add -.
+@function debugWeight($weight){
+  @if isValid($weight) {
+    @return -#{$weight};
+  } @else {
+    @return null;
+  }
+}
+
+
 // this will debut the font path.
 // if path last character was'nt ending with (/) then add (/) to the end of the path.
 @function debugPath($path){
+  @if type-of($path) == string {
+    // remove "".
+    $path: string.unquote($path);
 
-  // remove "".
-  $path: string.unquote($path);
+    // grap last letter/character from path.
+    $lc: string.slice($path, -1);
 
-  // grap last letter/character from path.
-  $lc: string.slice($path, -1);
+    // checking
+    @if $lc != "/"{
+      // add (/) to the end of the path.
+      $path: string.unquote($path + "/");
+    }
 
-  // checking
-  @if $lc != "/"{
-    // add (/) to the end of the path.
-    $path: string.unquote($path + "/");
+    // add "" and return.
+    @return string.quote($path);
+  } @else {
+    @return $path;
   }
-
-  // add "" and return.
-  @return string.quote($path);
 }
 
 

@@ -1,71 +1,52 @@
-@use "functions";
-
+@use "sass:string";
 
 // return some props to not repeat them on fontface function.
-@mixin font-family-style-src($name, $style, $weight, $suffixs, $path){
-  
+@mixin src($family, $folder, $weight, $suffixs, $path){
   $src: null;
 
-  $suffixMods:(
-		eot: "?#iefix",
-		svg: "#" + functions.myStrReplace($name, " ", "_")
-  );
-  
-  $suffixFormats:(
-    eot: embedded-opentype,
-    otf: opentype,
-    ttf: truetype,
-    woff2: woff2,
-    woff: woff
-  );
-
-  @if $weight and $weight != null {
-    $weight: -#{$weight}
-  }
-  
   @each $suffix in $suffixs {
-    $mod: if( map-has-key($suffixMods, $suffix), $suffix + map-get($suffixMods, $suffix), $suffix );
-    $format: if( map-has-key($suffixFormats, $suffix), map-get($suffixFormats, $suffix), $suffix );
-    $src: append( $src, url("#{$path}#{$name}/#{$name}#{$weight}.#{$mod}") format("#{$format}"), comma );
+    $mod: suffixMods($family, $suffix);
+    $format: suffixFormats($suffix);
+    $src: append($src, url(debugPath($path) + familyOrFolder($family,$folder) + $family + debugWeight($weight) + "." + $mod) format("#{$format}"), comma);
   }
 
   // output
-  font-family: $name;
   src: $src;
-  font-style: $style;
 }
 
 
-// main mixin
-@mixin font-face($name, $style:null, $weights:null, $suffixs:woff2 woff ttf, $path: "./fonts/") {
+@mixin executeOptionalMap($optionalMap) {
+  @if isValid($optionalMap) {
+    @each $key, $value in $optionalMap {
+      $key: string.unquote($key);
+      $value: string.unquote($value);
 
-  @if $name == null or $name == "" {
-    @error "Write a valide 'font name' (first prop) in font-face() mixin";
-  }
-  @if $suffixs == null or $suffixs == "" {
-    @error "Font suffix/suffixs is a unvalid type or may you just forgot to write it in font-face() mixin";
-  }
-  
-  $path: functions.debugPath($path);
-
-  // if type was number then it means its a single value and we will do the output base on that.
-  @if type-of($weights) == number or $weights == null {
-
-    @font-face {
-      @include font-family-style-src($name, $style, $weights, $suffixs, $path);
-      font-weight: $weights;
+      // output
+      #{$key}: #{$value};
     }
+  }
+}
 
-  // was a list type, then loop through.
-  } @else if type-of($weights) == list {
 
+@mixin executeFontFace($weights, $family, $folder, $suffixs, $path, $optionalMap) {
+  @if type-of($weights) == list {
+    
     @each $weight in $weights {
       @font-face {
-        @include font-family-style-src($name, $style, $weight, $suffixs, $path);
-        font-weight: $weight;
+        @include src($family, $folder, $weight, $suffixs, $path);
+        font-family: $family;
+        @include executeOptionalMap($optionalMap);
       }
+    }/// each
+
+  } @else if type-of($weights) != list {
+    $weight: $weights;
+
+    @font-face {
+      @include src($family, $folder, $weight, $suffixs, $path);
+      font-family: $family;
+      @include executeOptionalMap($optionalMap);
     }
-
-  } /// if
-
-} /// mixin
+    
+  } /// elseif
+}

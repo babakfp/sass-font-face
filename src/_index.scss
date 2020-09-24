@@ -1,1 +1,39 @@
+@use "sass:string";
 @import "mixins";
+@import "functions";
+
+@mixin font-face($necessaryMap, $optionalMap: null) {
+  
+  $path:    "./fonts";
+  $family:  null;
+  $folder:  null;
+  $suffixs: woff2 woff ttf;
+  $weights: null;
+
+  // assigning values
+  @each $key, $value in $necessaryMap {
+
+    @if $key == path    { $path:    $value; }
+    @if $key == family  { $family:  $value; }
+    @if $key == folder  { $folder:  $value; }
+    @if $key == suffixs { $suffixs: $value; }
+    @if $key == weights { $weights: $value; }
+
+  }/// each
+
+  
+  // validation
+  @if isValid($family) == false {
+    @error "Missing font-family or ot its not valid in font-face() mixin";
+  }
+  @if type-of($path) != string {
+    @error "Missing path or its not a string type";
+  }
+  @if isValid($suffixs) == false {
+    @error "Missing suffix/suffixs or its a invalid type";
+  }
+  /// validation
+
+  @include executeFontFace($weights, $family, $folder, $suffixs, $path, $optionalMap);
+
+}
