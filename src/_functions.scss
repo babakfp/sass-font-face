@@ -63,7 +63,7 @@
     $lc: string.slice($path, -1);
 
     // checking
-    @if $lc != "/"{
+    @if $lc != "/" {
       // add (/) to the end of the path.
       $path: string.unquote($path + "/");
     }
@@ -77,7 +77,7 @@
 
 
 // string replace
-@function myStrReplace($string, $search, $replace: "") {
+@function myStrReplace($string, $search, $replace: ""){
 
 	@if type-of($string) == string {
     
