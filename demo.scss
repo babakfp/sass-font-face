@@ -1,6 +1,6 @@
-@use "src/index" as ff;
+@use "src/index" as *;
 
-@include ff.font-face((
+@include font-face((
   family:  vazir,
   folder:  vazir-enNum,
   path:    "./fonts",
