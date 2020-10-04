@@ -1,6 +1,6 @@
 @use "sass:string";
-@import "mixins";
 @import "functions";
+@import "mixins";
 
 @mixin font-face($necessaryMap, $optionalMap: null) {
   
