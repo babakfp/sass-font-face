@@ -1,7 +1,19 @@
-@font-face {
-  font-family: vazir;
-  font-weight: 100;
-  src: url("./fonts/vazir-enNum/vazir-100.woff2") format("woff2");
-  font-style: normal;
+/* Error: Duplicate key.
+ *   ,
+ * 7 |   folder: "", // direct access to font from the (path)
+ *   |   ====== first key
+ * 8 |   folder: vazir-enNum, // (path)/(family)/(folder)
+ *   |   ^^^^^^ second key
+ *   '
+ *   demo.scss 8:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: Duplicate key.\a   \2577 \a 7 \2502    folder: "", // direct access to font from the (path)\d\a   \2502    \2501 \2501 \2501 \2501 \2501 \2501  first key\a 8 \2502    folder: vazir-enNum, // (path)/(family)/(folder)\d\a   \2502    ^^^^^^ second key\a   \2575 \a   demo.scss 8:3  root stylesheet';
 }
