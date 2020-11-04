@@ -1,14 +1,15 @@
 @use "src/index" as *;
 
 @include font-face((
-  family:  vazir,
-  folder:  vazir-enNum,
-  path:    "./fonts",
-  suffixs: eot woff2 woff ttf svg,
-  weights: 100 200 300 400 500 600 700 800 900,
-  printClasses: true,
-  classPrefix: text,
+  family:  vazir, // default is null
+  folder:  vazir-enNum, // default is null
+  path:    "./fonts", // default is "./fonts"
+  suffixs: eot woff2 woff ttf svg, // default is woff2 woff ttf
+  weights: 100 200 300 400 500 600 700 800 900, // default is null
+  printClasses: true, // default is false
+  classPrefix: text, // default is font
 ),(
+  // write real css. seperate with ,
   font-style: normal,
   display:    block,
 ));
