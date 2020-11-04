@@ -33,12 +33,12 @@
 
 
 // family or folder name for font folder name.
-@function debugFolder($folder){
-  @if not isValid($folder) {
-    @return "";
+@function familyOrFolder($family, $folder){
+  @if $folder = "" or $folder = null {
+    @return "/" + $folder + "/";
 
   } @else {
-    @return $folder + "/";
+    @return $family + "/";
   }
 }
 
@@ -63,14 +63,15 @@
     // grap last letter/character from path.
     $lc: string.slice($path, -1);
 
-    // checking
-    @if $lc != "/" {
-      // add (/) to the end of the path.
-      $path: string.unquote($path + "/");
+    // check if font path contains (/)
+    @if $lc = "/" {
+      // remove (/)
+      $path: string.slice($path, 1, -1); 
     }
 
     // add "" and return.
     @return string.quote($path);
+    
   } @else {
     @return $path;
   }

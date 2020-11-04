@@ -2,12 +2,12 @@
 
 @include font-face((
   family:  vazir, // default is null
-  folder:  vazir-enNum, // default is null
+  folder:  vazir-enNum, // default is family
   path:    "./fonts", // default is "./fonts"
-  suffixs: eot woff2 woff ttf svg, // default is woff2 woff ttf
-  weights: 100 200 300 400 500 600 700 800 900, // default is null
-  printClasses: true, // default is false
-  classPrefix: text, // default is font
+  suffixs: woff2, // default is woff2 woff ttf
+  weights: 100, // default is null
+  // printClasses: true, // default is false
+  // classPrefix: text, // default is font
 ),(
   // write real css. seperate with ,
   font-style: normal,

@@ -35,7 +35,7 @@
   @each $suffix in $suffixs {
     $mod: suffixMods($family, $suffix);
     $format: suffixFormats($suffix);
-    $src: append($src, url(debugPath($path) + familyOrFolder($family,$folder) + $family + debugWeight($weight) + "." + $mod) format("#{$format}"), comma);
+    $src: append($src, url(debugPath($path) + debugFolder($folder) + $family + debugWeight($weight) + "." + $mod) format("#{$format}"), comma);
   }
 
   // output

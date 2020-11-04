@@ -6,7 +6,7 @@
   
   $path:    "./fonts";
   $family:  null;
-  $folder:  null;
+  $folder:  $family;
   $suffixs: woff2 woff ttf;
   $weights: null;
   $printClasses: false;
