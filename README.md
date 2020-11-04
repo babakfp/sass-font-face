@@ -1,5 +1,5 @@
 # SASS font-face
-A complit SASS/SCSS mixin to easily write css @font-face{}.
+A complete SASS mixin to easily write CSS `@font-face{}`.
 
 
 
