@@ -5,8 +5,10 @@
   folder:  vazir-enNum,
   path:    "./fonts",
   suffixs: eot woff2 woff ttf svg,
-  weights: 100 400 500 600 700 800 900
+  weights: 100 200 300 400 500 600 700 800 900,
+  printClasses: true,
+  classPrefix: text,
 ),(
   font-style: normal,
-  display:    block
+  display:    block,
 ));
