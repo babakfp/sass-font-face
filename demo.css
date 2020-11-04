@@ -1,19 +1,98 @@
-/* Error: Duplicate key.
- *   ,
- * 7 |   folder: "", // direct access to font from the (path)
- *   |   ====== first key
- * 8 |   folder: vazir-enNum, // (path)/(family)/(folder)
- *   |   ^^^^^^ second key
- *   '
- *   demo.scss 8:3  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+@font-face {
+  font-family: sans;
+  font-weight: 100;
+  src: url("./fonts/mySans/sans-100.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-100.woff2") format("woff2"), url("./fonts/mySans/sans-100.woff") format("woff"), url("./fonts/mySans/sans-100.ttf") format("truetype"), url("./fonts/mySans/sans-100.svg#sans") format("svg");
+  font-style: normal;
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: Duplicate key.\a   \2577 \a 7 \2502    folder: "", // direct access to font from the (path)\d\a   \2502    \2501 \2501 \2501 \2501 \2501 \2501  first key\a 8 \2502    folder: vazir-enNum, // (path)/(family)/(folder)\d\a   \2502    ^^^^^^ second key\a   \2575 \a   demo.scss 8:3  root stylesheet';
+}
+.text-font-thin {
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 200;
+  src: url("./fonts/mySans/sans-200.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-200.woff2") format("woff2"), url("./fonts/mySans/sans-200.woff") format("woff"), url("./fonts/mySans/sans-200.ttf") format("truetype"), url("./fonts/mySans/sans-200.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-lighter {
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 300;
+  src: url("./fonts/mySans/sans-300.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-300.woff2") format("woff2"), url("./fonts/mySans/sans-300.woff") format("woff"), url("./fonts/mySans/sans-300.ttf") format("truetype"), url("./fonts/mySans/sans-300.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-light {
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 400;
+  src: url("./fonts/mySans/sans-400.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-400.woff2") format("woff2"), url("./fonts/mySans/sans-400.woff") format("woff"), url("./fonts/mySans/sans-400.ttf") format("truetype"), url("./fonts/mySans/sans-400.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-normal {
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 500;
+  src: url("./fonts/mySans/sans-500.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-500.woff2") format("woff2"), url("./fonts/mySans/sans-500.woff") format("woff"), url("./fonts/mySans/sans-500.ttf") format("truetype"), url("./fonts/mySans/sans-500.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-medium {
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 600;
+  src: url("./fonts/mySans/sans-600.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-600.woff2") format("woff2"), url("./fonts/mySans/sans-600.woff") format("woff"), url("./fonts/mySans/sans-600.ttf") format("truetype"), url("./fonts/mySans/sans-600.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-bold {
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 700;
+  src: url("./fonts/mySans/sans-700.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-700.woff2") format("woff2"), url("./fonts/mySans/sans-700.woff") format("woff"), url("./fonts/mySans/sans-700.ttf") format("truetype"), url("./fonts/mySans/sans-700.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-bolder {
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 800;
+  src: url("./fonts/mySans/sans-800.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-800.woff2") format("woff2"), url("./fonts/mySans/sans-800.woff") format("woff"), url("./fonts/mySans/sans-800.ttf") format("truetype"), url("./fonts/mySans/sans-800.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-black {
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: sans;
+  font-weight: 900;
+  src: url("./fonts/mySans/sans-900.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-900.woff2") format("woff2"), url("./fonts/mySans/sans-900.woff") format("woff"), url("./fonts/mySans/sans-900.ttf") format("truetype"), url("./fonts/mySans/sans-900.svg#sans") format("svg");
+  font-style: normal;
+  display: block;
+}
+.text-font-blacker {
+  font-weight: 900;
 }

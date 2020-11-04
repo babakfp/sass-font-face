@@ -1,21 +1,59 @@
 @use "src/index" as *;
 
 @include font-face((
-  family: vazir, // default is null
-  
-  // default is family
-  folder: "", // direct access to font from the (path)
-  folder: vazir-enNum, // (path)/(family)/(folder)
-  
-  path: "./fonts", // default is "./fonts"
-  suffixs: woff2 woff, // default is (woff2 woff ttf)
-  weights: 100, // default is null
 
-  // print css class'es for this font.
-  printClasses: true, // default is false
-  classPrefix: text, // default is "font"
-),(
-  // write real css. seperate with ,
+  //* src: url((path)/(folder)/(family)-(weight).(suffix)
+
+  /*
+    css font-family
+    default value is null
+  */
+  family: sans, // or Sans or SANS
+  
+  /*
+    default value is null
+    for direct access to font from the (path), set the value to empty string.
+  */
+  folder: mySans, // or Sans or SANS
+  
+  /*
+    writing "/" in the end, makes no difference.
+    default value is "./fonts"
+  */
+  path: "./fonts",
+
+  
+  /*
+    default value is woff2 woff ttf
+    learn more about browser support:
+    https://www.w3schools.com/css/css3_fonts.asp
+  */
+  suffixs: eot woff2 woff ttf svg,
+
+
+  /*
+    default value is null
+  */
+  weights: 100 200 300 400 500 600 700 800 900,
+
+  /*
+    print css class'es for the current font.
+    default value is false
+  */
+  printClasses: true,
+
+  /*
+    default is "font"
+  */
+  classPrefix: text,
+
+), (
+
+  /*
+    write actual css code hire.
+    keep in mind the thos are wraped in a sass map, so seperate with each with (,) not (;).
+  */
   font-style: normal,
-  display:    block,
+  display: block,
+
 ));
