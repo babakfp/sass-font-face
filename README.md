@@ -11,20 +11,20 @@ Check the demo file for a full explanation.
 
 ###### How it works?
 
-1. First import the mixin.
-[what is @use?](http://www.sass-lang.com/documentation/at-rules/use)
+1. Import the scss file into your project.
+**[@use](http://www.sass-lang.com/documentation/at-rules/use)**
 ```scss
 @use "src/index" as *;
 ```
 
-2. Include the mixin.
-[what is @mixin and @include?](http://www.sass-lang.com/documentation/at-rules/mixin)
+2. Use the mixin.
+**[@mixin](http://www.sass-lang.com/documentation/at-rules/mixin)**
 ```scss
 @include font-face();
 ```
 
-3. Add necessary props as a map.
-[what is map?](https://sass-lang.com/documentation/values/maps)
+3. Add necessary properties as a map.
+**[map](https://sass-lang.com/documentation/values/maps)**
 ```scss
 @include ff.font-face((
   family:  vazir,
@@ -34,7 +34,7 @@ Check the demo file for a full explanation.
 ));
 ```
 
-3. Optional props as second map.
+3. Optional properties as a second map.
 ```scss
 @include ff.font-face((),(
   font-style: normal,
@@ -66,7 +66,7 @@ and ...
 
 
 
-###### font-face Src property value
+###### font-face src
 ```scss
 src: url((path)/(folder)/(family)-(weight).(suffix)
 ```
