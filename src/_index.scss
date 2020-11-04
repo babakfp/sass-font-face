@@ -24,13 +24,13 @@
   
   // validation
   @if isValid($family) == false {
-    @error "Missing font-family or ot its not valid in font-face() mixin";
+    @error "font-family is missing or it's not valid";
   }
   @if type-of($path) != string {
-    @error "Missing path or its not a string type";
+    @error "path is missing or its not a string type";
   }
   @if isValid($suffixs) == false {
-    @error "Missing suffix/suffixs or its a invalid type";
+    @error "suffixs is missing or it's not a valid type";
   }
   /// validation
 
