@@ -68,5 +68,5 @@ and ...
 
 ###### font-face src
 ```scss
-src: url((path)/(folder)/(family)-(weight).(suffix)
+src: url((path)/(folder)/(family)-(weight).(suffix))
 ```

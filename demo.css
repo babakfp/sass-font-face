@@ -5,10 +5,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-thin {
-  font-weight: 100;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 200;
@@ -16,10 +12,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-lighter {
-  font-weight: 200;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 300;
@@ -27,10 +19,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-light {
-  font-weight: 300;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 400;
@@ -38,10 +26,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-normal {
-  font-weight: 400;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 500;
@@ -49,10 +33,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-medium {
-  font-weight: 500;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 600;
@@ -60,10 +40,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-bold {
-  font-weight: 600;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 700;
@@ -71,10 +47,6 @@
   font-style: normal;
   display: block;
 }
-.text-font-bolder {
-  font-weight: 700;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 800;
@@ -82,17 +54,10 @@
   font-style: normal;
   display: block;
 }
-.text-font-black {
-  font-weight: 800;
-}
-
 @font-face {
   font-family: sans;
   font-weight: 900;
   src: url("./fonts/mySans/sans-900.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-900.woff2") format("woff2"), url("./fonts/mySans/sans-900.woff") format("woff"), url("./fonts/mySans/sans-900.ttf") format("truetype"), url("./fonts/mySans/sans-900.svg#sans") format("svg");
   font-style: normal;
   display: block;
-}
-.text-font-blacker {
-  font-weight: 900;
 }

@@ -9,8 +9,6 @@
   $folder:  $family;
   $suffixs: woff2 woff ttf;
   $weights: null;
-  $printClasses: false;
-  $classPrefix: font;
 
   // assigning values
   @each $key, $value in $necessaryMap {
@@ -20,8 +18,6 @@
     @if $key == folder  { $folder:  $value; }
     @if $key == suffixs { $suffixs: $value; }
     @if $key == weights { $weights: $value; }
-    @if $key == printClasses { $printClasses: $value; }
-    @if $key == classPrefix { $classPrefix: $value; }
 
   }/// each
 
@@ -38,6 +34,6 @@
   }
   /// validation
 
-  @include executeFontFace($weights, $family, $folder, $suffixs, $path, $optionalMap, $printClasses, $classPrefix);
+  @include executeFontFace($weights, $family, $folder, $suffixs, $path, $optionalMap);
 
 }

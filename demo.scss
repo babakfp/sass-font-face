@@ -2,7 +2,7 @@
 
 @include font-face((
 
-  //* src: url((path)/(folder)/(family)-(weight).(suffix)
+  //* src: url((path)/(folder)/(family)-(weight).(suffix))
 
   /*
     css font-family
@@ -35,17 +35,6 @@
     default value is null
   */
   weights: 100 200 300 400 500 600 700 800 900,
-
-  /*
-    print css class'es for the current font.
-    default value is false
-  */
-  printClasses: true,
-
-  /*
-    default is "font"
-  */
-  classPrefix: text,
 
 ), (
 
