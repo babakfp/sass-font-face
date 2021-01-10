@@ -1,0 +1,54 @@
+@use "sass:string"
+@use "functions" as *
+@use "mixins" as *
+
+
+@mixin font-face($options, $customProperties: null)
+
+  $family: ""
+  $path: ""
+  $folderName: ""
+  $fileName: ""
+  $suffixes: []
+  $weights: []
+
+
+  // Reassigning
+  @each $key, $value in $options
+
+    @if $key == family
+      @if not type-of($value) == string
+        @error "Error: Invalid Type on: #{$key}"
+      $family: $value
+    
+    @if $key == path
+      @if not type-of($value) == string
+        @error "Error: Invalid Type on: #{$key}"
+      $path: $value
+
+    @if $key == folderName
+      @if not type-of($value) == string
+        @error "Error: Invalid Type on: #{$key}"
+      $folderName: $value
+
+    @if $key == fileName
+      @if not type-of($value) == string
+        @error "Error: Invalid Type on: #{$key}"
+      $fileName: $value
+
+    @if $key == suffixes
+      @if not type-of($value) == string and not type-of($value) == list
+        @error "Error: Invalid Type on: #{$key}"
+      $suffixes: $value
+      
+    @if $key == weights
+      @if not type-of($value) == string and not type-of($value) == list
+        @error "Error: Invalid Type on: #{$key}"
+      $weights: $value
+
+
+  // Rewrited with new values
+  $options: (family: $family, path: $path, folderName: $folderName, fileName: $fileName, suffixes: $suffixes, weights: $weights)
+
+
+  @include print-fontface($options, $customProperties)

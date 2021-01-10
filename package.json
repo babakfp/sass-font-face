@@ -1,0 +1,11 @@
+{
+  "name": "sass-font-face",
+  "version": "2.0.1",
+  "repository": "https://github.com/babakfp/sass-font-face.git",
+  "author": "babakfp",
+  "license": "GNU General Public License v3.0",
+  "scripts": {
+    "dev-sass": "sass --no-source-map --watch demo.sass:demo.css",
+    "dev-scss": "sass --no-source-map --watch demo.scss:demo.css"
+  }
+}

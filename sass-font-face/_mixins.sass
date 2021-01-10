@@ -1,0 +1,39 @@
+@use "sass:map"
+@use "functions" as *
+
+
+// return some props to not repeat them on fontface function.
+@mixin src-property($family, $path, $folderName, $fileName, $weight, $suffixes)
+
+  $src: null
+
+  @if $path != ""
+    $path: $path + "/"
+
+  @if $folderName != ""
+    $folderName: $folderName + "/"
+
+  @if $fileName != "" and $weight != ""
+    $fileName: $fileName + "-"
+  
+  @each $suffix in $suffixes
+    $mod: suffixMods($family, $suffix)
+    $format: suffixFormats($suffix)
+    $src: append($src, url($path + $folderName + $fileName + $weight + "." + $mod) format("#{$format}"), comma)
+    
+    @if $suffix == eot
+      src: url($path + $folderName + $fileName + $weight + "." + $suffix)
+
+  // output css property: value
+  src: $src
+
+
+@mixin print-fontface($options, $customProperties)
+
+  @each $weight in map.get($options, weights)
+    @font-face
+      font-family: map.get($options, family)
+      font-weight: $weight
+      @include src-property(map.get($options, family), map.get($options, path), map.get($options, folderName), map.get($options, fileName), $weight, map.get($options, suffixes))
+      @each $property, $value in $customProperties
+        #{$property}: #{$value}

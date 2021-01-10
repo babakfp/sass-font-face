@@ -1,63 +1,40 @@
 @font-face {
-  font-family: sans;
+  font-family: "Sans Serif";
   font-weight: 100;
-  src: url("./fonts/mySans/sans-100.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-100.woff2") format("woff2"), url("./fonts/mySans/sans-100.woff") format("woff"), url("./fonts/mySans/sans-100.ttf") format("truetype"), url("./fonts/mySans/sans-100.svg#sans") format("svg");
+  src: url("../fonts/100.eot");
+  src: url("../fonts/100.eot?#iefix") format("embedded-opentype"), url("../fonts/100.woff2") format("woff2"), url("../fonts/100.woff") format("woff"), url("../fonts/100.ttf") format("truetype"), url('../fonts/100.svg#Sans_str-replace("Serif", " ", "_")') format("svg");
   font-style: normal;
   display: block;
 }
 @font-face {
-  font-family: sans;
-  font-weight: 200;
-  src: url("./fonts/mySans/sans-200.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-200.woff2") format("woff2"), url("./fonts/mySans/sans-200.woff") format("woff"), url("./fonts/mySans/sans-200.ttf") format("truetype"), url("./fonts/mySans/sans-200.svg#sans") format("svg");
-  font-style: normal;
-  display: block;
-}
-@font-face {
-  font-family: sans;
+  font-family: "Sans Serif";
   font-weight: 300;
-  src: url("./fonts/mySans/sans-300.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-300.woff2") format("woff2"), url("./fonts/mySans/sans-300.woff") format("woff"), url("./fonts/mySans/sans-300.ttf") format("truetype"), url("./fonts/mySans/sans-300.svg#sans") format("svg");
+  src: url("../fonts/300.eot");
+  src: url("../fonts/300.eot?#iefix") format("embedded-opentype"), url("../fonts/300.woff2") format("woff2"), url("../fonts/300.woff") format("woff"), url("../fonts/300.ttf") format("truetype"), url('../fonts/300.svg#Sans_str-replace("Serif", " ", "_")') format("svg");
   font-style: normal;
   display: block;
 }
 @font-face {
-  font-family: sans;
+  font-family: "Sans Serif";
   font-weight: 400;
-  src: url("./fonts/mySans/sans-400.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-400.woff2") format("woff2"), url("./fonts/mySans/sans-400.woff") format("woff"), url("./fonts/mySans/sans-400.ttf") format("truetype"), url("./fonts/mySans/sans-400.svg#sans") format("svg");
+  src: url("../fonts/400.eot");
+  src: url("../fonts/400.eot?#iefix") format("embedded-opentype"), url("../fonts/400.woff2") format("woff2"), url("../fonts/400.woff") format("woff"), url("../fonts/400.ttf") format("truetype"), url('../fonts/400.svg#Sans_str-replace("Serif", " ", "_")') format("svg");
   font-style: normal;
   display: block;
 }
 @font-face {
-  font-family: sans;
+  font-family: "Sans Serif";
   font-weight: 500;
-  src: url("./fonts/mySans/sans-500.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-500.woff2") format("woff2"), url("./fonts/mySans/sans-500.woff") format("woff"), url("./fonts/mySans/sans-500.ttf") format("truetype"), url("./fonts/mySans/sans-500.svg#sans") format("svg");
+  src: url("../fonts/500.eot");
+  src: url("../fonts/500.eot?#iefix") format("embedded-opentype"), url("../fonts/500.woff2") format("woff2"), url("../fonts/500.woff") format("woff"), url("../fonts/500.ttf") format("truetype"), url('../fonts/500.svg#Sans_str-replace("Serif", " ", "_")') format("svg");
   font-style: normal;
   display: block;
 }
 @font-face {
-  font-family: sans;
+  font-family: "Sans Serif";
   font-weight: 600;
-  src: url("./fonts/mySans/sans-600.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-600.woff2") format("woff2"), url("./fonts/mySans/sans-600.woff") format("woff"), url("./fonts/mySans/sans-600.ttf") format("truetype"), url("./fonts/mySans/sans-600.svg#sans") format("svg");
-  font-style: normal;
-  display: block;
-}
-@font-face {
-  font-family: sans;
-  font-weight: 700;
-  src: url("./fonts/mySans/sans-700.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-700.woff2") format("woff2"), url("./fonts/mySans/sans-700.woff") format("woff"), url("./fonts/mySans/sans-700.ttf") format("truetype"), url("./fonts/mySans/sans-700.svg#sans") format("svg");
-  font-style: normal;
-  display: block;
-}
-@font-face {
-  font-family: sans;
-  font-weight: 800;
-  src: url("./fonts/mySans/sans-800.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-800.woff2") format("woff2"), url("./fonts/mySans/sans-800.woff") format("woff"), url("./fonts/mySans/sans-800.ttf") format("truetype"), url("./fonts/mySans/sans-800.svg#sans") format("svg");
-  font-style: normal;
-  display: block;
-}
-@font-face {
-  font-family: sans;
-  font-weight: 900;
-  src: url("./fonts/mySans/sans-900.eot?#iefix") format("embedded-opentype"), url("./fonts/mySans/sans-900.woff2") format("woff2"), url("./fonts/mySans/sans-900.woff") format("woff"), url("./fonts/mySans/sans-900.ttf") format("truetype"), url("./fonts/mySans/sans-900.svg#sans") format("svg");
+  src: url("../fonts/600.eot");
+  src: url("../fonts/600.eot?#iefix") format("embedded-opentype"), url("../fonts/600.woff2") format("woff2"), url("../fonts/600.woff") format("woff"), url("../fonts/600.ttf") format("truetype"), url('../fonts/600.svg#Sans_str-replace("Serif", " ", "_")') format("svg");
   font-style: normal;
   display: block;
 }

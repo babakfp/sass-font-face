@@ -1,0 +1,51 @@
+@use "sass:string";
+
+
+@function suffixMods($family, $suffix) {
+  $mods:(
+    eot: "?#iefix",
+    svg: "#" + myStrReplace($family, " ", "_")
+  );
+  @return if(map-has-key($mods, $suffix), $suffix + map-get($mods, $suffix), $suffix);
+}
+
+
+@function suffixFormats($suffix) {
+  $formats:(
+    woff: woff,
+    woff2: woff2,
+    otf: opentype,
+    ttf: truetype,
+    eot: embedded-opentype
+  );
+  @return if(map-has-key($formats, $suffix), map-get($formats, $suffix), $suffix);
+}
+
+
+// is null and empty.
+@function isValid($value) {
+  @if $value and $value != null and $value != "" {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+
+// string replace
+@function myStrReplace($string, $search, $replace: "") {
+
+	@if type-of($string) == string {
+    
+    $index: str-index($string, $search);
+
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+
+  } @else {
+    @return null;
+  }
+}

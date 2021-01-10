@@ -1,46 +1,51 @@
 @use "src/index" as *;
 
+// src: url(<path>/<folderName>/<fileName>-<weight>.<suffix>)
+// example: if <path> != "" then <path>+=/
+
 @include font-face((
 
-  //* src: url((path)/(folder)/(family)-(weight).(suffix))
+  /*
+    font-family
+    required
+  */
+  family: "Sans Serif",
+    
+  /*
+    example: <<./fonts>>/sans-serif/sans-serif-400.woff2
+  */
+  // path: "./fonts",
+  path: "../fonts",
 
   /*
-    css font-family
-    default value is null
+    font pack folder name.
+    example: ./fonts/<<sans-serif>>/sans-serif-400.woff2
   */
-  family: sans, // or Sans or SANS
-  
-  /*
-    default value is null
-    for direct access to font from the (path), set the value to empty string.
-  */
-  folder: mySans, // or Sans or SANS
-  
-  /*
-    writing "/" in the end, makes no difference.
-    default value is "./fonts"
-  */
-  path: "./fonts",
-
-  
-  /*
-    default value is woff2 woff ttf
-    learn more about browser support:
-    https://www.w3schools.com/css/css3_fonts.asp
-  */
-  suffixs: eot woff2 woff ttf svg,
-
+  // folderName: sans-serif,
+  folderName: "",
 
   /*
-    default value is null
+    font file name
   */
-  weights: 100 200 300 400 500 600 700 800 900,
+  // fileName: "sans-serif",
+  fileName: "",
+
+  /*
+    no default value
+  */
+  suffixes: eot woff2 woff ttf svg,
+
+  /*
+    no default value
+  */
+  // weights: 100 200 300 400 500 600 700 800 900,
+  weights: 100 300 400 500 600,
 
 ), (
 
   /*
     write actual css code hire.
-    keep in mind the thos are wraped in a sass map, so seperate with each with (,) not (;).
+    keep in mind that you need to use (,) instead of (;).
   */
   font-style: normal,
   display: block,
