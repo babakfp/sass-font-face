@@ -1,6 +1,6 @@
-@use "src/index" as *;
+@use "sass-font-face" as *;
 
-// src: url(<path>/<folderName>/<fileName>-<weight>.<suffix>)
+// src: url(<path>/<fileName>-<weight>.<suffix>)
 // example: if <path> != "" then <path>+=/
 
 @include font-face((
@@ -16,13 +16,6 @@
   */
   // path: "./fonts",
   path: "../fonts",
-
-  /*
-    font pack folder name.
-    example: ./fonts/<<sans-serif>>/sans-serif-400.woff2
-  */
-  // folderName: sans-serif,
-  folderName: "",
 
   /*
     font file name

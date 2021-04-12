@@ -7,7 +7,6 @@
 
   $family: ""
   $path: ""
-  $folderName: ""
   $fileName: ""
   $suffixes: []
   $weights: []
@@ -26,11 +25,6 @@
         @error "Error: Invalid Type on: #{$key}"
       $path: $value
 
-    @if $key == folderName
-      @if not type-of($value) == string
-        @error "Error: Invalid Type on: #{$key}"
-      $folderName: $value
-
     @if $key == fileName
       @if not type-of($value) == string
         @error "Error: Invalid Type on: #{$key}"
@@ -48,7 +42,7 @@
 
 
   // Rewrited with new values
-  $options: (family: $family, path: $path, folderName: $folderName, fileName: $fileName, suffixes: $suffixes, weights: $weights)
+  $options: (family: $family, path: $path, fileName: $fileName, suffixes: $suffixes, weights: $weights)
 
 
   @include print-fontface($options, $customProperties)
