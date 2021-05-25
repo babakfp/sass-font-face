@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Sans Serif";
+  font-weight: 100;
+  font-style: italic;
+  src: url("../fonts/sans-serif-italic-100.woff2") format("woff2"), url("../fonts/sans-serif-italic-100.ttf") format("truetype");
+  display: block;
+}

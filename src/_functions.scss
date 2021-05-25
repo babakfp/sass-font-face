@@ -1,0 +1,39 @@
+@use "sass:string";
+@use "sass:map";
+@use "./modules/_str-replace" as *;
+
+
+@function suffix-formats($suffix) {
+	$formats: (
+		woff: woff,
+		woff2: woff2,
+		otf: opentype,
+		ttf: truetype,
+		eot: embedded-opentype
+	);
+
+	@if map-has-key($formats, $suffix) {
+		@return map-get($formats, $suffix);
+	} @else {
+		@return $suffix;
+	}
+}
+
+
+@function suffix-mods($name, $suffix) {
+  $mods:(
+    eot: "?#iefix",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+  @return if(map-has-key($mods, $suffix), $suffix + map-get($mods, $suffix), $suffix);
+}
+
+
+@function set-a-default-value($options) {
+	@return (
+		name: 			if(map.get($options, name), 			map.get($options, name), 			null),
+		suffix: 		if(map.get($options, suffix), 		map.get($options, suffix), 		null),
+		weight: 		if(map.get($options, weight), 		map.get($options, weight), 		null),
+		url: 				if(map.get($options, url), 				map.get($options, url), 			null)
+	)
+}
