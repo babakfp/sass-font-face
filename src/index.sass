@@ -4,9 +4,9 @@
 @use "modules/str-replace" as *
 @use "functions" as *
 
-@mixin font-face($options, $extra-properties)
+@mixin font-face($options)
 
-	$options: set-a-default-value($options)
+	$options: validate-required-args($options)
 
 	$url: map.get($options, url)
 
@@ -40,8 +40,9 @@
 
 			font-style: if(str-index($url, italic), italic, normal)
 
-			src: $src
-
 			// custom extra css properties.
-			@each $property, $value in $extra-properties
-				#{$property}: #{$value}
+			@each $property, $value in $options
+				@if $property != name and $property != suffix and $property != weight and $property != url
+					#{$property}: #{$value}
+
+			src: $src

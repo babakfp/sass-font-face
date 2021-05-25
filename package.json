@@ -1,6 +1,6 @@
 {
   "name": "sass-font-face",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "license": "GPL-3.0",
   "scripts": {
     "demo": "sass demo/index.scss:demo/index.css --no-source-map",

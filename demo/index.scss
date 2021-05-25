@@ -2,7 +2,7 @@
 
 @include font-face((
   name: "Sans Serif",
-  
+
   suffix: woff2 ttf,
   // suffix: eot woff2 woff ttf svg,
   
@@ -12,10 +12,10 @@
   //   lighter 200,
   // ),
 	
-  url: "../fonts/sans-serif-italic-WEIGHT.SUFFIX"
-	// url: "<path>/<filename>-WEIGHT.SUFFIX"
-	// url: "<path>/<filename>-italic-WEIGHT.SUFFIX"
-), (
+  url: "../fonts/sans-serif-italic-WEIGHT.SUFFIX",
+	// url: "<path>/<filename>-WEIGHT.SUFFIX",
+	// url: "<path>/<filename>-italic-WEIGHT.SUFFIX",
+  
   // You can write actual css hire. Keep in mind that you need to use (,) instead of (;).
   display: block,
 ));
