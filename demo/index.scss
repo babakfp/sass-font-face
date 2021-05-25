@@ -1,8 +1,7 @@
 @use "../src/" as *;
 
 @include font-face((
-  // CSS font-famiily
-  name: "Sans Serif",
+  font-family: "Sans Serif",
 
   // Follow the order
   // suffix: eot woff2 woff ttf svg,

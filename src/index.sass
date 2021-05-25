@@ -15,21 +15,21 @@
 		$src: null
 
 		@font-face
-			font-family: map.get($options, name)
+			font-family: map.get($options, font-family)
 
 			@if is-num($weight)
 				font-weight: $weight
 				$url: str-replace($url, WEIGHT, $weight)
 			@else if is-list($weight)
-				// Grapping font weight unit. example: 100
+				// font weight unit. example: 100
 				font-weight: list.nth($weight, 2)
-				// Grapping font weight name. example: thin
+				// font weight name. example: thin
 				$url: str-replace($url, WEIGHT, list.nth($weight, 1))
 			
 			$url-backup: $url
 
 			@each $suffix in map.get($options, suffix)
-				$mod: suffix-mods(map.get($options, name), $suffix)
+				$mod: suffix-mods(map.get($options, font-family), $suffix)
 				$format: suffix-formats($suffix)
 				$url: str-replace($url-backup, SUFFIX, $mod)
 				$src: append($src, url($url) format("#{$format}"), comma)
@@ -42,7 +42,7 @@
 
 			// custom extra css properties.
 			@each $property, $value in $options
-				@if $property != name and $property != suffix and $property != weight and $property != url
+				@if $property != font-family and $property != suffix and $property != weight and $property != url
 					#{$property}: #{$value}
 
 			src: $src
