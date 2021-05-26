@@ -29,14 +29,14 @@
 			@each $suffix in map.get($options, suffix)
 				$mod: suffix-mods(map.get($options, font-family), $suffix)
 				$format: suffix-formats($suffix)
-				$url: str-replace($url-backup, SUFFIX, $mod)
+				$url: str-replace($url, SUFFIX, $mod)
 				$src: append($src, url($url) format("#{$format}"), comma)
 				
 				// we need to have an extra src property for the .eot font format.
 				@if $suffix == eot
 					src: url($url)
 
-				$url: str-replace($url-backup, $mod, SUFFIX)
+				$url: str-replace($url, $mod, SUFFIX)
 
 			font-style: if(str-index($url, italic), italic, normal)
 
