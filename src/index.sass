@@ -26,8 +26,6 @@
 				// font weight name. example: thin
 				$url: str-replace($url, WEIGHT, list.nth($weight, 1))
 			
-			$url-backup: $url
-
 			@each $suffix in map.get($options, suffix)
 				$mod: suffix-mods(map.get($options, font-family), $suffix)
 				$format: suffix-formats($suffix)
@@ -38,7 +36,14 @@
 				@if $suffix == eot
 					src: url($url)
 
+				$url: str-replace($url-backup, $mod, SUFFIX)
+
 			font-style: if(str-index($url, italic), italic, normal)
+
+			@if is-num($weight)
+				$url: str-replace($url, $weight, WEIGHT)
+			@else if is-list($weight)
+				$url: str-replace($url, list.nth($weight, 1), WEIGHT)
 
 			// custom extra css properties.
 			@each $property, $value in $options
