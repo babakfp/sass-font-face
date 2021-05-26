@@ -8,10 +8,11 @@
   suffix: woff2 ttf,
 
   // output: sans-serif-italic-100.woff2
-  // weight: 100,
+  // weight: 100 200,
   // output: sans-serif-italic-thin.woff2
   weight: (
     thin 100,
+    extralight 200,
   ),
 
   // Replace the <path> and <filename>.

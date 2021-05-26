@@ -1,9 +1,9 @@
-@use "sass:string";
 @use "sass:map";
-@use "./modules/_str-replace" as *;
+@use "sass:string";
+@use "modules/_str_replace" as *;
 
 
-@function suffix-formats($suffix) {
+@function suffix_formats($suffix) {
 	$formats: (
 		woff: woff,
 		woff2: woff2,
@@ -20,10 +20,10 @@
 }
 
 
-@function suffix-mods($font-family, $suffix) {
+@function suffix_mods($font-family, $suffix) {
   $mods:(
     eot: "?#iefix",
-    svg: "#" + str-replace($font-family, " ", "_")
+    svg: "#" + str_replace($font-family, " ", "_")
   );
   @return if(map-has-key($mods, $suffix), $suffix + map-get($mods, $suffix), $suffix);
 }
