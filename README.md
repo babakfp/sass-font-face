@@ -7,7 +7,7 @@ Instead of writing a long [CSS @font-face at-rule](https://developer.mozilla.org
 
 ## Example
 ```scss
-@use "../src/" as *;
+@use "<path>/sass-font-face" as *;
 
 @include font-face((
   font-family: "Sans Serif",
