@@ -1,9 +1,8 @@
 {
   "name": "sass-font-face",
-  "version": "3.3.0",
-  "license": "GPL-3.0",
+  "version": "3.5.0",
+  "license": "MIT",
   "scripts": {
-    "demo": "sass demo/index.scss:demo/index.css --no-source-map",
     "test": "sass test/index.scss:test/index.css --no-source-map"
   }
 }

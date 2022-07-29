@@ -1,18 +1,17 @@
-# SASS Font Face
-SASS for CSS `@font-face`. Write 5 lines instead of 300 lines.
-**[Demo SCSS File](https://github.com/babakfp/sass-font-face/blob/master/demo/index.scss)**
+# SASS Font Face `@font-face`
 
-## Introduction
-Instead of writing a long [CSS @font-face at-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face), you can write a simple sass mixin to do the all work for you.
+Write 5 lines instead of 300 lines. You can you a sass mixin to do the all work for you.
 
 ## Example
+
 ```scss
-@use "<path>/sass-font-face" as *;
+@use "./sass-font-face" as *;
 
 @include font-face((
   font-family: "Sans Serif",
-  suffix: eot woff2 woff ttf svg,
-  weight: (
+	// Order doesn't matter.
+  suffixes: eot woff2 woff ttf svg,
+  weights: (
     thin 100,
     extralight 200,
     light 300,
@@ -23,8 +22,10 @@ Instead of writing a long [CSS @font-face at-rule](https://developer.mozilla.org
     extrabold 800,
     black 900,
   ),
-  url: "../fonts/sans-serif-WEIGHT.SUFFIX",
+	// <weight> and <suffix> will be replaced by the mixin.
+  url: "./fonts/sans-serif-<weight>.<suffix>",
+	// You don't need to add font-style, it will be handled by the mixin based on, is there `italic` substring in the url.
+	// Your custom css properties here:
   display: block,
 ));
-
 ```

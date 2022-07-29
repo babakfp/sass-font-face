@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "str-replace" as *;
+
+
+@function suffix_formats($suffix) {
+	$formats: (
+		woff: woff,
+		woff2: woff2,
+		otf: opentype,
+		ttf: truetype,
+		eot: embedded-opentype
+	);
+
+	@if map-has-key($formats, $suffix) {
+		@return map-get($formats, $suffix);
+	} @else {
+		@return $suffix;
+	}
+}
+
+
+@function suffix_mods($font-family, $suffix) {
+  $mods:(
+    eot: "?#iefix",
+    svg: "#" + str-replace($font-family, " ", "")
+  );
+  @return if(map-has-key($mods, $suffix), $suffix + map-get($mods, $suffix), $suffix);
+}
+
+
+@function validate-required-args($options) {
+	$requiredArgs: font-family suffixes url;
+	@each $arg in $requiredArgs {
+		@if not map.get($options, $arg) {
+			@error "Invalid `#{$arg}` argument.";
+		}
+	}
+	@return $options;
+}
+
+@function is-list-contain-item($list, $item) {
+	@if list.index($list, $item) == null {
+		@return false;
+	} @else {
+		@return true;
+	}
+}
+
+@function sort-suffixes($suffixes) {
+	$sorted-suffixes: [];
+
+	@if is-list-contain-item($suffixes, eot) {
+		$sorted-suffixes: append($sorted-suffixes, eot);
+	}
+	@if is-list-contain-item($suffixes, woff2) {
+		$sorted-suffixes: append($sorted-suffixes, woff2);
+	}
+	@if is-list-contain-item($suffixes, woff) {
+		$sorted-suffixes: append($sorted-suffixes, woff);
+	}
+	@if is-list-contain-item($suffixes, ttf) {
+		$sorted-suffixes: append($sorted-suffixes, ttf);
+	}
+	@if is-list-contain-item($suffixes, svg) {
+		$sorted-suffixes: append($sorted-suffixes, svg);
+	}
+
+	@return $sorted-suffixes;
+}
