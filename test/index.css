@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Sans Serif";
+  font-weight: 100;
+  src: url("../fonts/sans-serif-italic-thin.eot");
+  src: url("../fonts/sans-serif-italic-thin.eot?#iefix") format("embedded-opentype"), url("../fonts/sans-serif-italic-thin.woff2") format("woff2"), url("../fonts/sans-serif-italic-thin.woff") format("woff"), url("../fonts/sans-serif-italic-thin.ttf") format("truetype"), url("../fonts/sans-serif-italic-thin.svg#SansSerif") format("svg");
+  font-style: italic;
+  display: block;
+}
+@font-face {
+  font-family: "Sans Serif";
+  font-weight: 200;
+  src: url("../fonts/sans-serif-italic-extralight.eot");
+  src: url("../fonts/sans-serif-italic-extralight.eot?#iefix") format("embedded-opentype"), url("../fonts/sans-serif-italic-extralight.woff2") format("woff2"), url("../fonts/sans-serif-italic-extralight.woff") format("woff"), url("../fonts/sans-serif-italic-extralight.ttf") format("truetype"), url("../fonts/sans-serif-italic-extralight.svg#SansSerif") format("svg");
+  font-style: italic;
+  display: block;
+}

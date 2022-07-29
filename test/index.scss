@@ -1,0 +1,12 @@
+@use "../index" as *;
+
+@include font-face((
+	font-family: "Sans Serif",
+	suffixes: eot woff2 woff ttf svg,
+	weights: (
+		thin 100,
+		extralight 200,
+	),
+	url: "../fonts/sans-serif-italic-<weight>.<suffix>",
+	display: block,
+));
